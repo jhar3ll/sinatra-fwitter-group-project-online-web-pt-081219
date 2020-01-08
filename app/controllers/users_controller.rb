@@ -1,3 +1,5 @@
+require 'pry'
+
 class UsersController < ApplicationController
   
    get '/users/:slug' do
@@ -44,10 +46,10 @@ class UsersController < ApplicationController
 
   get '/logout' do
     if logged_in?
-      session.destroy
-      redirect to '/login'
-    else
+      session.clear
+      redirect to '/login' 
+    else 
       redirect to '/'
-    end
+    end 
   end
 end
